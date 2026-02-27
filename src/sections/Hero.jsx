@@ -4,10 +4,21 @@ import Copy from "@/components/Copy/Copy";
 import Link from "next/link";
 import React from "react";
 import { motion } from "motion/react";
+import { toast, Toaster } from "sonner";
 
 const Hero = () => {
+  const handleCopy = async (textToCopy) => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      toast.success("Copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+      toast.error("Failed to copy text.");
+    }
+  };
   return (
     <section className="w-full bg-transparent h-screen pt-20 px-4 md:px-8 py-10 flex flex-col justify-end ">
+      <Toaster position="bottom-center" />
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full">
         {/* LEFT SIDE */}
@@ -60,10 +71,20 @@ const Hero = () => {
           </ul>
           {/* FOOTER LINE */}
           <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end hidden lg:flex">
-            <div>
-              <span className="text-white w-fit">Have a project in mind?</span>{" "}
-              Tell me a little about your project, and I&apos;ll get back to you
-              within 24-48 hours.
+            <div className="flex flex-col gap-4">
+              <p
+                className="cursor-pointer"
+                onClick={() => handleCopy("bachwani.prateek@gmail.com")}
+              >
+                bachwani.prateek@gmail.com
+              </p>
+              <p>
+                <span className="text-white w-fit">
+                  Have a project in mind?
+                </span>{" "}
+                Tell me a little about your project, and I&apos;ll get back to
+                you within 24-48 hours.
+              </p>
             </div>
           </div>
         </div>
@@ -97,16 +118,16 @@ const Hero = () => {
                 href={project.link}
                 target="_"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-between py-2 border-b border-white/30 group text-foreground hover:bg-[#ededed] hover:text-black transition-all duration-700 ease-in-out hover:px-4 px-2`}
+                className={`flex items-center justify-between py-2 border-b border-white/30 group text-foreground hover:bg-[#ededed] hover:text-black transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-4 px-2`}
               >
                 <span
-                  className={`text-sm md:text-base font-semibold text-[${project.color}]`}
+                  className={`text-sm md:text-base font-semibold text-[${project.color}] group-hover:text-black`}
                 >
                   {project.name}
                 </span>
 
                 {!project.soon && (
-                  <span className="opacity-100 group-hover:scale-110 group-hover:rotate-45 transition duration-150 ease-out text-white group-hover:text-black font-extrabold">
+                  <span className="opacity-100 group-hover:scale-110 group-hover:rotate-45 rotate-360 transition duration-350 ease-out text-white group-hover:text-black font-extrabold">
                     ↗
                   </span>
                 )}
@@ -120,11 +141,19 @@ const Hero = () => {
 
           {/* FOOTER LINE for mobile */}
           <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end flex my-10 lg:hidden ">
-            <div>
+            <div className="flex flex-col gap-4">
+              <p
+                className="cursor-pointer"
+                onClick={() => handleCopy("bachwani.prateek@gmail.com")}
+              >
+                bachwani.prateek@gmail.com
+              </p>
               <p>
-                <span className="text-white">Have a project in mind?</span> Tell
-                me a little about your project, and I&apos;ll get back to you
-                within 24-48 hours.
+                <span className="text-white w-fit">
+                  Have a project in mind?
+                </span>{" "}
+                Tell me a little about your project, and I&apos;ll get back to
+                you within 24-48 hours.
               </p>
             </div>
           </div>

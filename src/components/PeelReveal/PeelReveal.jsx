@@ -167,7 +167,7 @@ const PeelReveal = () => {
           </div> */}
           <div className="peel-reveal-header text-2xl md:text-4xl max-w-4xl">
             <h1>
-              Thoughtful websites for growing businesses. I design and build
+              Thoughtful websites for growing businesses ❤. I design and build
               high-quality, clean, reliable websites that feel professional,
               load fast, and are easy to maintain.
             </h1>
