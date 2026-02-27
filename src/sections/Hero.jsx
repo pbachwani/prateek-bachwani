@@ -38,8 +38,8 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-            className="mt-8 text-xs md:text-sm text-gray-400 uppercase tracking-widest leading-relaxed max-w-md"
+            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            className="mt-8 text-xs md:text-sm text-gray-400 uppercase tracking-widest leading-relaxed max-w-md cursor-default"
           >
             I work directly with clients from start to finish, keeping things
             simple, transparent, and focused on what actually matters for your
@@ -48,7 +48,7 @@ const Hero = () => {
 
           {/* Bullet Points */}
 
-          <ul className="mt-6 space-y-2 text-sm text-gray-300">
+          <motion.ul className="mt-6 space-y-2 text-sm text-gray-300 cursor-default">
             {[
               "Direct communication, no middle layers",
               "Design and development under one roof",
@@ -56,24 +56,19 @@ const Hero = () => {
             ].map((text, i) => (
               <motion.li
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                // viewport={{ once: true }}
-                transition={{
-                  duration: 0.3,
-                  delay: i * 0.1,
-                  ease: "easeOut",
-                }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: i * 0.8, ease: "easeOut" }}
               >
                 {text}
               </motion.li>
             ))}
-          </ul>
+          </motion.ul>
           {/* FOOTER LINE */}
-          <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end hidden lg:flex">
+          <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end hidden lg:flex cursor-default">
             <div className="flex flex-col gap-4">
               <p
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-white transition-colors duration-200 ease-out"
                 onClick={() => handleCopy("bachwani.prateek@gmail.com")}
               >
                 bachwani.prateek@gmail.com
@@ -96,7 +91,7 @@ const Hero = () => {
             [Currently working independently. Studio launching soon.]
           </div> */}
           {/* Label */}
-          <div className="text-xs text-gray-500 uppercase tracking-widest mb-4">
+          <div className="text-xs text-gray-500 uppercase tracking-widest mb-4 cursor-default">
             Clients I&apos;ve worked with
           </div>
 
@@ -143,7 +138,7 @@ const Hero = () => {
           <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end flex my-10 lg:hidden ">
             <div className="flex flex-col gap-4">
               <p
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-white transition-colors duration-200 ease-out"
                 onClick={() => handleCopy("bachwani.prateek@gmail.com")}
               >
                 bachwani.prateek@gmail.com
