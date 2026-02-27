@@ -113,17 +113,22 @@ const Hero = () => {
                 href={project.link}
                 target="_"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-between py-2 border-b border-white/30 group text-foreground hover:bg-[#ededed] hover:text-black transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-4 px-2`}
+                className={`flex items-center justify-between py-2 border-b border-white/30 group text-foreground hover:bg-black/30 hover:text-black transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-4 px-2`}
               >
                 <span
-                  className={`text-sm md:text-base font-semibold text-[${project.color}] group-hover:text-black`}
+                  className={`text-sm md:text-base font-semibold text-[${project.color}] group-hover:text-white`}
                 >
                   {project.name}
                 </span>
 
                 {!project.soon && (
-                  <span className="opacity-100 group-hover:scale-110 group-hover:rotate-45 rotate-360 transition duration-350 ease-out text-white group-hover:text-black font-extrabold">
-                    ↗
+                  <span className="opacity-100 group-hover:scale-110 group-hover:rotate-0 -rotate-135 transition duration-350 ease-out text-white group-hover:text-black font-extrabold">
+                    <img
+                      width="20"
+                      height="20"
+                      src="/arrow-64.png"
+                      alt="arrow"
+                    />
                   </span>
                 )}
 

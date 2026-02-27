@@ -32,7 +32,7 @@ function MyTime() {
 
 export default function Navbar() {
   return (
-    <nav className="fixed w-full backdrop-blur-xl text-white px-4 md:px-8 py-4 flex items-center justify-between cursor-default z-50 mix-blend-difference">
+    <nav className="fixed w-full bg-transparent backdrop-blur-xl text-white px-4 md:px-8 py-4 flex items-center justify-between cursor-default z-50 mix-blend-difference">
       {/* LEFT: Logo */}
       <div className="flex items-baseline gap-6">
         <Link

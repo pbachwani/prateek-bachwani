@@ -7,7 +7,7 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen">
       <Navbar />
       <div className="relative">
         <PeelReveal />
