@@ -15,7 +15,7 @@ const ComingSoon = () => {
         ease: "easeOut",
         delay: 0.5,
       }}
-      className="w-full h-[40vh] md:min-h-[70vh] flex justify-center items-center max-md:pt-20"
+      className="w-full h-svh md:min-h-[70vh] flex justify-center items-center max-md:pt-20"
     >
       <div className="lowercase text-lg flex gap-1 cursor-default">
         {/* <h3>website launching soon.</h3> */}

@@ -2,12 +2,14 @@
 import { projects } from "@/app/constants/data";
 import Copy from "@/components/Copy/Copy";
 import Link from "next/link";
-import React from "react";
-import { motion } from "motion/react";
+import React, { useState } from "react";
+import { hover, motion } from "motion/react";
 import { toast, Toaster } from "sonner";
 import TargetCursor from "@/components/TargetCursor";
 
 const Hero = () => {
+  const [hovered, setHovered] = useState(false);
+
   const handleCopy = async (textToCopy) => {
     try {
       await navigator.clipboard.writeText(textToCopy);
@@ -59,7 +61,7 @@ const Hero = () => {
                 key={i}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: i * 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.3, delay: i * 0.1, ease: "easeOut" }}
               >
                 {text}
               </motion.li>
@@ -86,67 +88,77 @@ const Hero = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex flex-col justify-end">
-          {/* status */}
-          {/* <div className="text-xs text-[#C2A24A] uppercase tracking-widest mb-4 lg:text-end">
-            [Currently working independently. Studio launching soon.]
-          </div> */}
-          {/* Label */}
-          <div className="text-xs text-gray-500 uppercase tracking-widest mb-4 cursor-default">
-            Clients I&apos;ve worked with
+        <div className="flex flex-col justify-between">
+          {/* top */}
+          <div className="mt-8 aspect-video max-md:hidden">
+            {hovered !== null && projects[hovered] && (
+              <img
+                src={projects[hovered].image}
+                alt="project cover"
+                className="w-full h-full object-cover max-md:hidden"
+              />
+            )}
           </div>
 
-          {/* Project List */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            // viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-              delay: 0.2,
-            }}
-            className="flex flex-col border-t border-white/30 font-clash relative"
-          >
-            {/* <TargetCursor
+          <div>
+            {/* Label */}
+            <div className="text-xs text-gray-500 uppercase tracking-widest mb-4 cursor-default">
+              Clients I&apos;ve worked with
+            </div>
+
+            {/* Project List */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              // viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 0.2,
+              }}
+              className="flex flex-col border-t border-white/30 font-clash relative"
+            >
+              {/* <TargetCursor
               spinDuration={4}
               hideDefaultCursor
               parallaxOn
               hoverDuration={0.2}
               // use with 'cursor-target' classname
             /> */}
-            {projects.map((project, i) => (
-              <Link
-                key={i}
-                href={project.link}
-                target="_"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-between py-2 gap-2 border-b border-white/30 group text-foreground hover:bg-black/30 hover:text-black transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-4 px-2 `}
-              >
-                <span
-                  className={`text-sm md:text-base font-semibold text-[${project.color}] group-hover:text-white group-hover:scale-110`}
+              {projects.map((project, i) => (
+                <Link
+                  key={i}
+                  href={project.link}
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(false)}
+                  target="_"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-between py-2 gap-2 border-b border-white/30 group text-foreground hover:bg-black/30 hover:text-black transition-all duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-4 px-2 `}
                 >
-                  {project.name}
-                </span>
-
-                {!project.soon && (
-                  <span className="opacity-100 group-hover:scale-110 group-hover:rotate-0 -rotate-135 transition duration-350 ease-out text-white group-hover:text-black font-extrabold">
-                    <img
-                      width="20"
-                      height="20"
-                      src="/arrow-64.png"
-                      alt="arrow"
-                    />
+                  <span
+                    className={`text-sm md:text-base font-semibold text-[${project.color}] group-hover:text-white group-hover:scale-110`}
+                  >
+                    {project.name}
                   </span>
-                )}
 
-                {project.soon && (
-                  <span className="text-xs text-gray-500">coming soon</span>
-                )}
-              </Link>
-            ))}
-          </motion.div>
+                  {!project.soon && (
+                    <span className="opacity-100 group-hover:scale-110 group-hover:rotate-0 -rotate-135 transition duration-350 ease-out text-white group-hover:text-black font-extrabold">
+                      <img
+                        width="20"
+                        height="20"
+                        src="/arrow-64.png"
+                        alt="arrow"
+                      />
+                    </span>
+                  )}
 
+                  {project.soon && (
+                    <span className="text-xs text-gray-500">coming soon</span>
+                  )}
+                </Link>
+              ))}
+            </motion.div>
+          </div>
           {/* FOOTER LINE for mobile */}
           <div className="mt-10 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest h-full flex-1 items-end flex my-10 lg:hidden ">
             <div className="flex flex-col gap-4">
@@ -172,3 +184,12 @@ const Hero = () => {
 };
 
 export default Hero;
+
+{
+  {
+    /* status */
+  }
+  /* <div className="text-xs text-[#C2A24A] uppercase tracking-widest mb-4 lg:text-end">
+            [Currently working independently. Studio launching soon.]
+          </div> */
+}

@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const PeelReveal = () => {
   const peelRevealContainerRef = useRef(null);
-
   useEffect(() => {
     const container = peelRevealContainerRef.current;
     if (!container) return;
