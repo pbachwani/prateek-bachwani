@@ -25,9 +25,9 @@ export const projects = [
   },
   {
     name: "Story Of Being",
-    link: "",
-    color: "#ededed",
-    soon: true,
+    link: "https://storyofbeing.in/",
+    color: "#C2A24A",
+    // soon: true,
     image: "/projects/sob 1.webp",
   },
   {

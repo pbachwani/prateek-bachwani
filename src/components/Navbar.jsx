@@ -39,7 +39,7 @@ export default function Navbar() {
           href="/"
           className="md:text-lg text-xs font-bold tracking-wider font-clash"
         >
-          Prateek Bachwani
+          Idea Behind™
         </Link>
 
         {/* Info Text */}

@@ -124,19 +124,6 @@ const PeelReveal = () => {
   return (
     <div className="peel-reveal-container" ref={peelRevealContainerRef}>
       <section className="peel-reveal">
-        {/* <div className="section-header">
-          <Copy type="flicker">
-            <p>Signal type: Neutral</p>
-          </Copy>
-          <Copy type="flicker">
-            <p>Module ID: Nrmlss_001</p>
-          </Copy>
-        </div>
-        <div className="section-footer">
-          <Copy type="flicker">
-            <p>Status: Detached</p>
-          </Copy>
-        </div> */}
         <div className="peel-reveal-img-container">
           <div className="pr-img">
             <Image
@@ -146,24 +133,6 @@ const PeelReveal = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          {/* <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div>
-          <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div>
-          <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div>
-          <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div>
-          <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div>
-          <div className="pr-img mask">
-            <img src="/about-img.png" alt="" />
-          </div> */}
           <div className="peel-reveal-header text-2xl md:text-4xl max-w-4xl">
             <h1>
               Thoughtful websites for growing businesses ❤. I design and build
@@ -172,12 +141,12 @@ const PeelReveal = () => {
             </h1>
           </div>
         </div>
-        <div className="peel-reveal-intro-text-container lg:text-7xl">
+        <div className="peel-reveal-intro-text-container lg:text-xl">
           <div className="peel-reveal-intro-text">
-            <h1>idea</h1>
+            <h1>scroll</h1>
           </div>
           <div className="peel-reveal-intro-text">
-            <h1>behind</h1>
+            <h1>down</h1>
           </div>
         </div>
       </section>

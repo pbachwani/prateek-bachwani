@@ -90,7 +90,7 @@ const Hero = () => {
         {/* RIGHT SIDE */}
         <div className="flex flex-col justify-between">
           {/* top */}
-          <div className="mt-8 aspect-video max-md:hidden">
+          <div className="mt-8 max-md:hidden w-fit h-fit px-16">
             {hovered !== null && projects[hovered] && (
               <img
                 src={projects[hovered].image}
